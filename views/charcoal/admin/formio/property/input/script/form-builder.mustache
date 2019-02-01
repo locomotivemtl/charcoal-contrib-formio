@@ -56,10 +56,11 @@
 
         FormBuilder.prototype.init_builder = function (options) {
             var that = this;
+            var initialData = this.$input.val() ? JSON.parse(this.$input.val()) : {};
 
             Formio.builder(
                 this.$builder.get(0),
-                JSON.parse(this.$input.val()),
+                initialData,
                 {builder: options}
             )
                 .then(function (builder) {
