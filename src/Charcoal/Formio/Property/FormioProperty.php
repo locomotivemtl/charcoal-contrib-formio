@@ -13,5 +13,13 @@ use Charcoal\Property\StructureProperty;
  */
 class FormioProperty extends StructureProperty
 {
-
+    /**
+     * Retrieve the property's type identifier.
+     *
+     * @return string
+     */
+    public function type()
+    {
+        return 'charcoal/formio/property/formio';
+    }
 }

@@ -4,3 +4,31 @@
 
     `charcoal/admin/formio/property/input/form-builder`
 --}}
+
+{{# addCss }}
+    <link rel="stylesheet" href="https://unpkg.com/formiojs@latest/dist/formio.full.min.css">
+{{/ addCss }}
+
+<div id="{{ inputId }}" style="min-height: 125px">
+    <div class="js-form-builder"></div>
+    <div class="js-loader charcoal-loader_box -is-loading">
+        <div class="charcoal-loader_spinner">
+            <i class="charcoal-loader_spinner_icon fa-3x fa fa-spinner fa-pulse"></i>
+        </div>
+    </div>
+    <input type="hidden" name="{{ inputName }}" value="{{ inputVal }}" class="js-input">
+</div>
+
+
+{{# addJs }}
+    {{> charcoal/admin/formio/property/input/script/form-builder }}
+    <script>
+        var inputOptions = {
+            id           : '{{ inputId }}',
+            type         : '{{ inputType }}',
+            data         : {{& controlDataForJsAsJson }}
+        };
+
+        Charcoal.Admin.manager().add_property_input(inputOptions);
+    </script>
+{{/ addJs }}

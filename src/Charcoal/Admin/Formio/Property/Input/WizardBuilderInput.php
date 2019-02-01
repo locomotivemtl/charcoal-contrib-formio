@@ -1,6 +1,6 @@
 <?php
 
-namespace Charcoal\Formio\Property\Input;
+namespace Charcoal\Admin\Formio\Property\Input;
 
 /**
  * Wizard Builder Input
