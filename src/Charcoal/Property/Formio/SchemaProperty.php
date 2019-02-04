@@ -1,6 +1,6 @@
 <?php
 
-namespace Charcoal\Formio\Property;
+namespace Charcoal\Property\Formio;
 
 use Charcoal\Property\StructureProperty;
 
@@ -11,7 +11,7 @@ use Charcoal\Property\StructureProperty;
  * Data storage is similar as StructureProperty.
  * The property's value is free to be anything serializable.
  */
-class FormioProperty extends StructureProperty
+class SchemaProperty extends StructureProperty
 {
     /**
      * Retrieve the property's type identifier.
@@ -20,6 +20,6 @@ class FormioProperty extends StructureProperty
      */
     public function type()
     {
-        return 'charcoal/formio/property/formio';
+        return 'formio/schema';
     }
 }

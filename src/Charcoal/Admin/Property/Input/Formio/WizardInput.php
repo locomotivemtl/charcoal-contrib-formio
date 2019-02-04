@@ -1,6 +1,8 @@
 <?php
 
-namespace Charcoal\Admin\Formio\Property\Input;
+namespace Charcoal\Admin\Property\Input\Formio;
+
+use Charcoal\Admin\Property\Input\Formio\FormInput;
 
 /**
  * Wizard Builder Input
@@ -13,7 +15,7 @@ namespace Charcoal\Admin\Formio\Property\Input;
  * Example of FormBuilder module.
  *  {@link http://formio.github.io/formio.js/app/examples/wizard.html}
  */
-class WizardBuilderInput extends FormBuilderInput
+class WizardInput extends FormInput
 {
 
 }

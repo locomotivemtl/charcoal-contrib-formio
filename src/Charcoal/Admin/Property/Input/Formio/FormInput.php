@@ -1,6 +1,6 @@
 <?php
 
-namespace Charcoal\Admin\Formio\Property\Input;
+namespace Charcoal\Admin\Property\Input\Formio;
 
 // from charcoal-property
 use Charcoal\Admin\Property\AbstractPropertyInput;
@@ -17,7 +17,7 @@ use InvalidArgumentException;
  * Example of FormBuilder module.
  *  {@link http://formio.github.io/formio.js/app/examples/custombuilder.html}
  */
-class FormBuilderInput extends AbstractPropertyInput
+class FormInput extends AbstractPropertyInput
 {
     /**
      * Settings for the formio form builder.

@@ -2,7 +2,7 @@
     (function () {
 
         /***
-         * `charcoal/admin/property/input/Form-builder`
+         * `charcoal/admin/property/input/Formio/Form`
          * Property_Input_FormBuilder_Widget Javascript class
          *
          */
@@ -13,7 +13,7 @@
         };
 
         FormBuilder.prototype             = Object.create(Charcoal.Admin.Property.prototype);
-        FormBuilder.prototype.constructor = Charcoal.Admin.Formio_Property_Input_Form_Builder;
+        FormBuilder.prototype.constructor = Charcoal.Admin.Property_Input_Formio_Form;
         FormBuilder.prototype.parent      = Charcoal.Admin.Property.prototype;
 
         FormBuilder.prototype.set_properties = function (data) {
@@ -84,7 +84,7 @@
             this.$input.val(JSON.stringify(this._builder.schema));
         };
 
-        Charcoal.Admin.Formio_Property_Input_Form_Builder = FormBuilder;
+        Charcoal.Admin.Property_Input_Formio_Form = FormBuilder;
 
     }(jQuery, document));
 </script>
