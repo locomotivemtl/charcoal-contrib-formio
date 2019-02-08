@@ -66,6 +66,32 @@ class FormProperty extends AbstractProperty
     }
 
     /**
+     * Call this on pre-save and pre-update,
+     * _schema should be the submitted property value
+     * _fromId should be the actual data saved in the object or null.
+     *
+     * @param string $schema The schema to save.
+     * @param string $formId The form object id.
+     * @return string The form id.
+     */
+    public function createOrUpdateRelation($schema, $formId = null)
+    {
+        if (!$formId) {
+            $model = $this->proto();
+            $model->setSchema($schema);
+            $model->save();
+
+            return $model->id();
+        }
+
+        $model = $this->proto()->load($formId);
+        $model->setSchema($schema);
+        $model->update();
+
+        return $model->id();
+    }
+
+    /**
      * @return string
      */
     public function type()
