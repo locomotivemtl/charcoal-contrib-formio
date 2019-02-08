@@ -1,0 +1,42 @@
+// ==========================================================================
+// Admin / Vendors
+// ==========================================================================
+@import "../../../../../../charcoal-admin/assets/src/styles/charcoal/admin/tools/functions";
+@import "../../../../../../charcoal-admin/assets/src/styles/charcoal/admin/tools/mixins";
+@import "../../../../../../charcoal-admin/assets/src/styles/charcoal/admin/tools/fonts";
+@import "../../../../../../charcoal-admin/assets/src/styles/charcoal/admin/tools/layout";
+@import "../../../../../../charcoal-admin/assets/src/styles/charcoal/admin/tools/widths";
+
+// Settings
+// ==========================================================================
+
+@import "../../../../../../charcoal-admin/assets/src/styles/charcoal/admin/settings/config.colors";
+@import "../../../../../../charcoal-admin/assets/src/styles/charcoal/admin/settings/config";
+
+// Overwriting core Bootstrap variables
+@import "../../../../../../charcoal-admin/assets/src/styles/charcoal/admin/bootstrap/variables";
+
+// ==========================================================================
+// Bootstrap
+// ==========================================================================
+
+// Core variables & utilities
+// ==========================================================================
+@import "../../../../../../charcoal-admin/node_modules/bootstrap/scss/functions";
+@import "../../../../../../charcoal-admin/node_modules/bootstrap/scss/variables";
+@import "../../../../../../charcoal-admin/node_modules/bootstrap/scss/mixins";
+
+// Centralized dependencies
+// ==========================================================================
+
+// jQuery MiniColors
+@import "../../../../../node_modules/formiojs/dist/formio.full";
+
+// Dependency overrides
+// ==========================================================================
+
+// Formio modal style overrides
+@import "vendors/formio-modal";
+
+
+
