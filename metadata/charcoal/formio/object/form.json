@@ -1,0 +1,31 @@
+{
+    "sources": {
+        "default": {
+            "type": "database",
+            "table": "formio_forms"
+        }
+    },
+    "default_source": "default",
+
+    "default_data": {},
+
+    "properties": {
+        "id": {
+            "type": "id",
+            "mode": "uuid"
+        },
+        "position": {
+            "type": "number",
+            "l10n": false,
+            "label": {
+                "en": "Position",
+                "fr": "Position"
+            },
+            "description": {
+                "en": "Position determines the linear sorting order of this section relative to others.",
+                "fr": "La position détermine l'ordre linéaire de cette section par rapport aux autres dans le tri des listes."
+            }
+        }
+    },
+    "key": "id"
+}

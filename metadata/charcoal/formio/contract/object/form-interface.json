@@ -1,0 +1,28 @@
+{
+    "properties": {
+        "title": {
+            "type": "string",
+            "l10n": true,
+            "label": {
+                "en": "Title",
+                "fr": "Titre"
+            },
+            "description": {
+                "en": "Form title, usually displayed above the form.",
+                "fr": "Titre du formulaire, généralement affiché avant le formulaire."
+            }
+        },
+        "schema": {
+            "type": "formio/schema",
+            "l10n": false,
+            "label": {
+                "en": "Schema",
+                "fr": "Schéma"
+            },
+            "description": {
+                "en": "",
+                "fr": ""
+            }
+        }
+    }
+}
