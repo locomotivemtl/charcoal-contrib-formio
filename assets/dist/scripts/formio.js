@@ -5,8 +5,6 @@
  * Require
  * - formio.full.min.js
  */
-
-
 ;(function () {
 
     /***
@@ -42,13 +40,9 @@
     };
 
     FormBuilder.prototype.init = function () {
-        var that = this;
-
         this.$loader.addClass('-is-loading');
         if (typeof Formio === "undefined") {
-            $.getScript('https://cdn.jsdelivr.net/npm/formiojs@3.13.10/dist/formio.full.min.js').done(function () {
-                that.init();
-            });
+            console.log('Missing formio.full.js dependencies');
 
             return;
         }
@@ -93,25 +87,6 @@
      * @return this (chainable)
      */
     FormBuilder.prototype.save = function () {
-
-
-        this.xhr = $.ajax({
-            type:        'POST',
-            url:         this.request_url(),
-            data:        {
-                schema: this._builder.schema
-            },
-            dataType:    'json',
-            processData: false,
-            contentType: false,
-        });
-
-        // this.xhr
-        //     .then($.proxy(this.request_done, this, $form, $trigger))
-        //     .done($.proxy(this.request_success, this, $form, $trigger))
-        //     .fail($.proxy(this.request_failed, this, $form, $trigger))
-        //     .always($.proxy(this.request_complete, this, $form, $trigger));
-
         this.$input.val(JSON.stringify(this._builder.schema));
     };
 
