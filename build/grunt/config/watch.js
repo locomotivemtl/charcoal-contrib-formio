@@ -5,19 +5,15 @@ module.exports = {
     },
     javascript: {
         files: [ '<%= paths.js.src %>/**/*.js', '<%= paths.grunt %>/config/concat.js' ],
-        tasks: [ 'concat', 'notify:javascript', 'copy:www' ]
+        tasks: [ 'concat', 'uglify', 'notify:javascript' ]
     },
     sass: {
         files: [ '<%= paths.css.src %>/**/*.scss' ],
-        tasks: [ 'sass', 'postcss', 'notify:sass', 'copy:www' ]
+        tasks: [ 'sass', 'postcss', 'notify:sass' ]
     },
     svg: {
         files: [ '<%= paths.img.src %>/**/*.svg' ],
         tasks: [ 'svg_sprite', 'notify:svg' ]
-    },
-    dist: {
-        files: [ '<%= paths.dist %>/**/*' ],
-        tasks: [ 'copy:www', 'notify:www' ]
     },
     tasks: {
         options: {
