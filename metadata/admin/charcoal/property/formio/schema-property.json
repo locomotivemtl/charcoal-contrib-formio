@@ -1,5 +1,5 @@
 {
     "admin": {
-        "input_type": "charcoal/admin/property/input/formio/form"
+        "input_type": "charcoal/admin/property/input/formio/schema"
     }
 }

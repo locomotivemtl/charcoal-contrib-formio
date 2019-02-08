@@ -31,16 +31,10 @@ use Pimple\Container;
  * Example of FormBuilder module.
  *  {@link http://formio.github.io/formio.js/app/examples/custombuilder.html}
  */
-class FormInput extends AbstractPropertyInput
+class SchemaInput extends AbstractPropertyInput
 {
     use ModelFactoryTrait;
-    use ConfigurableTrait;
     use FeedbackContainerTrait;
-
-    /**
-     * @var ConfigInterface|FormioConfig $formioConfig
-     */
-    private $formioConfig;
 
     /**
      * Settings for the formio form builder.
@@ -48,16 +42,6 @@ class FormInput extends AbstractPropertyInput
      * @var array
      */
     private $builderOptions;
-
-    /**
-     * @var ModelInterface $formProto
-     */
-    private $formProto;
-
-    /**
-     * @var ModelInterface $submissionProto
-     */
-    private $submissionProto;
 
     /**
      * Inject dependencies from a DI Container.
@@ -70,27 +54,6 @@ class FormInput extends AbstractPropertyInput
         parent::setDependencies($container);
 
         $this->setModelFactory($container['model/factory']);
-        $this->setConfig($container['config']);
-        $this->formioConfig = $container['formio/config'];
-    }
-
-    /**
-     * PHP 5 allows developers to declare constructor methods for classes.
-     * Classes which have a constructor method call this method on each newly-created object,
-     * so it is suitable for any initialization that the object may need before it is used.
-     *
-     * Note: Parent constructors are not called implicitly if the child class defines a constructor.
-     * In order to run a parent constructor, a call to parent::__construct() within the child constructor is required.
-     *
-     * @param array|\ArrayAccess $data Constructor data.
-     * @return void
-     * @link http://php.net/manual/en/language.oop5.decon.php
-     */
-    public function __construct(array $data = [])
-    {
-        parent::__construct($data);
-
-        $this->createObjTable($this->formProto());
     }
 
     /**
@@ -113,9 +76,9 @@ class FormInput extends AbstractPropertyInput
     }
 
     /**
-     * Merge (replacing or adding) builder options.
+     * Merge (replacing or adding) map widget options.
      *
-     * @param  array $settings The builder options.
+     * @param  array $settings The map widget options.
      * @return self
      */
     public function mergeBuilderOptions(array $settings)
@@ -126,7 +89,7 @@ class FormInput extends AbstractPropertyInput
     }
 
     /**
-     * Add (or replace) a builder option.
+     * Add (or replace) an map widget option.
      *
      * @param  string $key The setting to add/replace.
      * @param  mixed  $val The setting's value to apply.
@@ -152,7 +115,7 @@ class FormInput extends AbstractPropertyInput
     }
 
     /**
-     * Retrieve the builder options.
+     * Retrieve the map widget's options.
      *
      * @return array
      */
@@ -166,7 +129,7 @@ class FormInput extends AbstractPropertyInput
     }
 
     /**
-     * Retrieve the default builder options.
+     * Retrieve the default map widget options.
      *
      * @return array
      */
@@ -196,63 +159,6 @@ class FormInput extends AbstractPropertyInput
                 ]
             ]
         ];
-    }
-
-    /**
-     * @uses   AbstractProperty::inputVal() Must handle string sanitization of value.
-     * @throws \UnexpectedValueException If the value is invalid.
-     * @return string
-     */
-    public function inputVal()
-    {
-        $val = parent::inputVal();
-
-        if (isset($val) && $val !== null) {
-            $formModel = $this->formProto()->load($val);
-
-            if ($formModel->id() !== null) {
-                return $formModel->schema();
-            }
-        }
-
-        return $val;
-    }
-
-    /**
-     * @return ModelInterface|mixed
-     */
-    private function formProto()
-    {
-        if (isset($this->formProto)) {
-            return $this->formProto;
-        }
-
-        $this->formProto = $this->modelFactory()->create($this->formioConfig->formObject());
-
-        return $this->formProto;
-    }
-
-    /**
-     * @param ModelInterface $proto Prototype to ensure table creation for.
-     * @return void
-     */
-    private function createObjTable(ModelInterface $proto)
-    {
-        $obj = $proto;
-        if (!$obj) {
-            return;
-        }
-
-        if ($obj->source()->tableExists() === false) {
-            $obj->source()->createTable();
-            $msg = $this->translator()->translate('Database table created for "{{ objType }}".', [
-                '{{ objType }}' => $obj->objType()
-            ]);
-            $this->addFeedback(
-                'notice',
-                '<span class="fa fa-asterisk" aria-hidden="true"></span><span>&nbsp; '.$msg.'</span>'
-            );
-        }
     }
 
     /**

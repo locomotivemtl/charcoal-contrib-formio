@@ -1,15 +1,13 @@
 {{!--
-    Form Builder Property Input
+    Form Property Input
     =============================
 
     `charcoal/admin/property/input/formio/form`
 --}}
 
-{{# addCss }}
-    <link rel="stylesheet" href="https://unpkg.com/formiojs@latest/dist/formio.full.min.css">
-{{/ addCss }}
-
 <div id="{{ inputId }}" style="min-height: 125px">
+    <button class="js-form-builder-create"><i class="fa fa-plus"></i></button>
+
     <div class="js-form-builder"></div>
     <div class="js-loader charcoal-loader_box -is-loading">
         <div class="charcoal-loader_spinner">
@@ -19,16 +17,14 @@
     <input type="hidden" name="{{ inputName }}" value="{{ inputVal }}" class="js-input">
 </div>
 
+{{ assets.enqueue.css.formio_css }}
+{{ assets.enqueue.js.formio_js }}
+{{# assets.inject.js }}
+    var inputOptions = {
+        id           : '{{ inputId }}',
+        type         : '{{ inputType }}',
+        data         : {{& controlDataForJsAsJson }}
+    };
 
-{{# addJs }}
-    {{> charcoal/admin/property/input/formio/script/form-builder }}
-    <script>
-        var inputOptions = {
-            id           : '{{ inputId }}',
-            type         : '{{ inputType }}',
-            data         : {{& controlDataForJsAsJson }}
-        };
-
-        Charcoal.Admin.manager().add_property_input(inputOptions);
-    </script>
-{{/ addJs }}
+    Charcoal.Admin.manager().add_property_input(inputOptions);
+{{/ assets.inject.js }}

@@ -2,10 +2,11 @@
 
 namespace Charcoal\Property\Formio;
 
+// from charcoal-property
 use Charcoal\Property\StructureProperty;
 
 /**
- * Formio Property
+ * Formio Schema Property
  *
  * Allows storage of a formio compatible data array.
  * Data storage is similar as StructureProperty.
