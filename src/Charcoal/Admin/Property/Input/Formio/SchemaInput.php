@@ -57,6 +57,14 @@ class SchemaInput extends AbstractPropertyInput
     }
 
     /**
+     * @return string
+     */
+    public function inputType()
+    {
+        return 'charcoal/admin/property/input/formio/form';
+    }
+
+    /**
      * Set the form builder options.
      *
      * This method always merges default settings.

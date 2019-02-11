@@ -1,5 +1,5 @@
 {{!--
-    Form Property Input
+    Submission Property Input
     =============================
 
     `charcoal/admin/property/input/formio/form`
@@ -14,13 +14,14 @@
     </div>
     <input type="hidden" name="{{ inputName }}" value="{{ inputVal }}" class="js-input">
 </div>
+
 {{ assets.enqueue.css.formio_css }}
 {{ assets.enqueue.js.formio_js }}
 {{# assets.inject.js }}
     var inputOptions = {
-        id           : '{{ inputId }}',
-        type         : '{{ inputType }}',
-        data         : {{& controlDataForJsAsJson }}
+    id           : '{{ inputId }}',
+    type         : '{{ inputType }}',
+    data         : {{& controlDataForJsAsJson }}
     };
 
     Charcoal.Admin.manager().add_property_input(inputOptions);

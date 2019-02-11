@@ -7,7 +7,7 @@
  */
 ;(function () {
 
-    /***
+    /**
      * `charcoal/admin/property/input/Formio/Form`
      * Property_Input_Formio_Form Javascript class
      *
@@ -19,13 +19,14 @@
     };
 
     FormBuilder.prototype             = Object.create(Charcoal.Admin.Property.prototype);
-    FormBuilder.prototype.constructor = Charcoal.Admin.Property_Input_Formio_Form;
+    FormBuilder.prototype.constructor = Charcoal.Admin.Property_Input_Formio_Submission;
     FormBuilder.prototype.parent      = Charcoal.Admin.Property.prototype;
 
     FormBuilder.prototype.set_properties = function (data) {
         // Builder reference
         this._builder         = undefined;
         this._builder_options = data.data.builder_options;
+        this._schema          = data.data.schema;
 
         this.save_action   = data.save_action || 'object/save';
         this.update_action = data.update_action || 'object/update';
@@ -61,15 +62,19 @@
     };
 
     FormBuilder.prototype.init_builder = function (options) {
-        var that        = this;
-        var initialData = this.$input.val() ? JSON.parse(this.$input.val()) : {};
+        var that           = this;
+        var submissionData = this.$input.val() ? JSON.parse(this.$input.val()) : {};
 
-        Formio.builder(
+        Formio.createForm(
             this.$builder.get(0),
-            initialData,
-            {builder: options}
+            this._schema,
+            options
         )
             .then(function (builder) {
+                if (submissionData !== null) {
+                    builder.submission = submissionData;
+                }
+
                 // On builder render
                 that.$loader.removeClass('-is-loading');
 
@@ -90,6 +95,6 @@
         this.$input.val(JSON.stringify(this._builder.schema));
     };
 
-    Charcoal.Admin.Property_Input_Formio_Form = FormBuilder;
+    Charcoal.Admin.Property_Input_Formio_Submission = FormBuilder;
 
 }(jQuery, document, Formio));

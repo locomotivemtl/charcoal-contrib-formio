@@ -1,0 +1,20 @@
+{
+    "properties": {
+        "submission_data": {
+            "type": "structure",
+            "input_type": "charcoal/admin/property/input/textarea",
+            "l10n": false,
+            "label": {
+                "en": "Submission",
+                "fr": "Soumission"
+            },
+            "description": {
+                "en": "",
+                "fr": ""
+            }
+        },
+        "form": {
+            "type": "string"
+        }
+    }
+}

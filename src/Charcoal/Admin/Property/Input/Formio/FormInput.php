@@ -91,6 +91,7 @@ class FormInput extends AbstractPropertyInput
         parent::__construct($data);
 
         $this->createObjTable($this->formProto());
+        $this->createObjTable($this->submissionProto());
     }
 
     /**
@@ -221,7 +222,7 @@ class FormInput extends AbstractPropertyInput
     /**
      * @return ModelInterface|mixed
      */
-    private function formProto()
+    protected function formProto()
     {
         if (isset($this->formProto)) {
             return $this->formProto;
@@ -230,6 +231,20 @@ class FormInput extends AbstractPropertyInput
         $this->formProto = $this->modelFactory()->create($this->formioConfig->formObject());
 
         return $this->formProto;
+    }
+
+    /**
+     * @return ModelInterface|mixed
+     */
+    protected function submissionProto()
+    {
+        if (isset($this->submissionProto)) {
+            return $this->submissionProto;
+        }
+
+        $this->submissionProto = $this->modelFactory()->create($this->formioConfig->submissionObject());
+
+        return $this->submissionProto;
     }
 
     /**

@@ -1,6 +1,6 @@
 /* global Formio, Charcoal */
 /**
- * Form builder
+ * Form Schema builder
  *
  * Require
  * - formio.full.min.js
@@ -9,7 +9,7 @@
 
     /***
      * `charcoal/admin/property/input/Formio/Form`
-     * Property_Input_Formio_Form Javascript class
+     * Property_Input_Formio_Schema Javascript class
      *
      */
     var FormBuilder = function (data) {
@@ -19,16 +19,13 @@
     };
 
     FormBuilder.prototype             = Object.create(Charcoal.Admin.Property.prototype);
-    FormBuilder.prototype.constructor = Charcoal.Admin.Property_Input_Formio_Form;
+    FormBuilder.prototype.constructor = Charcoal.Admin.Property_Input_Formio_Schema;
     FormBuilder.prototype.parent      = Charcoal.Admin.Property.prototype;
 
     FormBuilder.prototype.set_properties = function (data) {
         // Builder reference
         this._builder         = undefined;
         this._builder_options = data.data.builder_options;
-
-        this.save_action   = data.save_action || 'object/save';
-        this.update_action = data.update_action || 'object/update';
 
         // Elements
         this.$widget  = this.element();
@@ -40,9 +37,13 @@
     };
 
     FormBuilder.prototype.init = function () {
+        var that = this;
+
         this.$loader.addClass('-is-loading');
         if (typeof Formio === "undefined") {
-            console.log('Missing formio.full.js dependencies');
+            $.getScript('https://cdn.jsdelivr.net/npm/formiojs@3.13.10/dist/formio.full.min.js').done(function () {
+                that.init();
+            });
 
             return;
         }
@@ -61,7 +62,7 @@
     };
 
     FormBuilder.prototype.init_builder = function (options) {
-        var that        = this;
+        var that = this;
         var initialData = this.$input.val() ? JSON.parse(this.$input.val()) : {};
 
         Formio.builder(
@@ -90,6 +91,6 @@
         this.$input.val(JSON.stringify(this._builder.schema));
     };
 
-    Charcoal.Admin.Property_Input_Formio_Form = FormBuilder;
+    Charcoal.Admin.Property_Input_Formio_Schema = FormBuilder;
 
-}(jQuery, document, Formio));
+}(jQuery, document));
