@@ -114,7 +114,36 @@ Two property type are provided by this package :
 }
 ```
 
-To update a form when saving the object you must call the method 
+To update a form when saving the object you must call the method `createOrUpdateRelation()` on the property.
+This example saves or updates the form builder schema for a property called `test`. This code should be found in the object's controller.
+```php
+/**
+ * {@inheritdoc}
+ *
+ * @see StorableTrait::preSave()
+ * @return boolean
+ */
+protected function preSave()
+{
+    $this->test = $this->p('test')->createOrUpdateRelation($this->test, null);
+
+    return parent::preSave();
+}
+
+/**
+ * {@inheritdoc}
+ *
+ * @see StorableTrait::preUpdate
+ * @param array $properties Optional properties to update.
+ * @return boolean
+ */
+protected function preUpdate(array $properties = null)
+{
+    $this->test = $this->p('test')->createOrUpdateRelation($this->test, $this->load()->test);
+
+    return parent::preUpdate($properties);
+}
+```
 
 ## Development
 
