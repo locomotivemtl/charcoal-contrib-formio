@@ -37,7 +37,18 @@ The preferred (and only supported) method is with Composer:
 $ composer require locomotivemtl/charcoal-contrib-formio
 ```
 
+Additional dependencies that are temporarily needed:
+The `locomotivemtl/charcoal-admin` package should be checked out on the assetic branch and the `kriswallsmith/assetic` package should be manually required.
 
+```shell
+$ cd vendor/locomotivemtl/charcoal-admin
+$ git fetch --all
+$ git checkout assetic
+```
+
+```shell
+$ composer require kriswallsmith/assetic
+```
 
 ### Dependencies
 
@@ -69,14 +80,39 @@ $ composer require locomotivemtl/charcoal-contrib-formio
 
 ## Configuration
 
---TBD--
+Add the formio module to the modules list in the site's config file.
+
+```json
+"modules": {
+    "charcoal/formio/formio": {}
+}
+```
 
 
 
 ## Usage
 
---TBD--
-
+Two property type are provided by this package :
+- `fomrio/form` (Form builder input)
+- `fomrio/submission` (To save a form submission)
+    
+```json
+"my_property": {
+    "type": "formio/form",
+    "l10n": false,
+    "label": "My property"
+},
+```
+```json
+"my_property_submission": {
+      "type": "formio/submission",
+      "l10n": false,
+      "label": {
+           "en": "Submission",
+            "fr": "Soumission"
+      }
+}
+```
 
 ## Development
 
