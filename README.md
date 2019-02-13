@@ -136,6 +136,9 @@ $ composer test
 -   The Form.io sdk documentation.
     [http://formio.github.io/formio.js/app/sdk](http://formio.github.io/formio.js/app/sdk)
 
+-   Front-end frameworks.
+    [https://help.form.io/developer/frameworks](https://help.form.io/developer/frameworks)
+
 ### API Documentation
 
 -   The auto-generated `phpDocumentor` API documentation is available at:  
