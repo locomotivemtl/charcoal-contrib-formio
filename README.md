@@ -37,19 +37,6 @@ The preferred (and only supported) method is with Composer:
 $ composer require locomotivemtl/charcoal-contrib-formio
 ```
 
-Additional dependencies that are temporarily needed:
-The `locomotivemtl/charcoal-admin` package should be checked out on the assetic branch and the `kriswallsmith/assetic` package should be manually required.
-
-```shell
-$ cd vendor/locomotivemtl/charcoal-admin
-$ git fetch --all
-$ git checkout assetic
-```
-
-```shell
-$ composer require kriswallsmith/assetic
-```
-
 ### Dependencies
 
 #### Required
