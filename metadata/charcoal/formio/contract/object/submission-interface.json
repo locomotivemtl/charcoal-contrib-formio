@@ -1,8 +1,7 @@
 {
     "properties": {
         "submission_data": {
-            "type": "structure",
-            "input_type": "charcoal/admin/property/input/textarea",
+            "type": "formio/submission",
             "l10n": false,
             "label": {
                 "en": "Submission",
