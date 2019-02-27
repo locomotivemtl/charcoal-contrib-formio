@@ -107,7 +107,8 @@ class SubmissionInput extends FormInput
         }
 
         if (isset($val) && $val !== null) {
-            $model = $this->submissionModel($val);
+            $submissionModelId = $this->viewController()->objId();
+            $model = $this->submissionModel($submissionModelId);
 
             if ($model->id()) {
                 return $model->submissionData();
@@ -145,7 +146,7 @@ class SubmissionInput extends FormInput
             return $form->schema();
         }
 
-        return [];
+        return "";
     }
 
     /**

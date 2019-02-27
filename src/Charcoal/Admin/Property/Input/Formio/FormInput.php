@@ -182,7 +182,38 @@ class FormInput extends AbstractPropertyInput
                     'textfield'   => true,
                     'textarea'    => true,
                     'email'       => true,
-                    'phoneNumber' => true
+                    'phoneNumber' => true,
+                    'card' => [
+                        'title' => 'Credit card',
+                        'key' => 'card',
+                        'icon' => 'fa fa-usd',
+                        'schema' => [
+                            'label' => 'Carte de crédit',
+                            'type' => 'stripe',
+                            'key' => 'card',
+                            'stripe' => [
+                                'apiKey' => 'pk_test_Aprek1cboUExxK6dHoBaOphh',
+                                'cardData' => [
+                                    'name' => ' '
+                                ],
+                                'payButton' => [
+                                    'enable' => true,
+                                    'paymentRequest' => [
+                                        'country' => 'CA',
+                                        'currency' => 'cad',
+                                        'total' => [
+                                            'label' => 'Licence',
+                                            'amount' => 3000,
+                                        ]
+                                    ]
+                                ],
+                                'successLabel' => "Paiement réussi",
+                                'stripeElementOptions' => [
+                                    'hidePostalCode' => true
+                                ]
+                            ]
+                        ]
+                    ]
                 ]
             ],
             'basic'         => [

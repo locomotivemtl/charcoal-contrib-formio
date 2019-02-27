@@ -34,13 +34,11 @@
         "lists": {
             "default": {
                 "label": {},
-                "properties": [],
-                "list_actions": [
-                    {
-                        "ident": "create",
-                        "url": "object/edit?obj_type={{obj_type}}"
-                    }
+                "properties": [
+                    "id",
+                    "created"
                 ],
+                "list_actions": [],
                 "object_actions": {
                     "edit": {
                         "label": {
@@ -86,12 +84,13 @@
                         "icon": "info",
                         "layout": {
                             "structure": [
-                                {"columns": [3,1]},
+                                {"columns": [1]},
                                 {"columns": [1]}
                             ]
                         },
                         "priority": 10,
                         "properties": [
+                            "submission_data"
                         ]
                     }
                 },

@@ -70,10 +70,6 @@
             {builder: options}
         )
             .then(function (builder) {
-                if (options.hasOwnProperty('submission')) {
-                    builder.submission = options.submission;
-                }
-
                 // On builder render
                 that.$loader.removeClass('-is-loading');
 
@@ -266,8 +262,10 @@
             options
         )
             .then(function (builder) {
-                if (submissionData !== null) {
-                    builder.submission = submissionData;
+                if (submissionData) {
+                    builder.submission = {
+                        data: submissionData
+                    }
                 }
 
                 // On builder render
