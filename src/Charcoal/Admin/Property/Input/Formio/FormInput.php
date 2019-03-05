@@ -174,15 +174,15 @@ class FormInput extends AbstractPropertyInput
     public function defaultBuilderOptions()
     {
         return [
-            'customExample' => [
-                'title'      => 'Example Components',
-                'default'    => true,
-                'weight'     => 0,
+            'basic'         => [
+                'default' => false,
+            ],
+            'advanced'      => [
                 'components' => [
-                    'textfield'   => true,
-                    'textarea'    => true,
-                    'email'       => true,
-                    'phoneNumber' => true,
+                    'recaptcha' => false,
+                    'form'      => false,
+                    'location'  => false,
+                    'modaledit' => false,
                     'card' => [
                         'title' => 'Credit card',
                         'key' => 'card',
@@ -192,7 +192,7 @@ class FormInput extends AbstractPropertyInput
                             'type' => 'stripe',
                             'key' => 'card',
                             'stripe' => [
-                                'apiKey' => 'pk_test_Aprek1cboUExxK6dHoBaOphh',
+                                'apiKey' => '',
                                 'cardData' => [
                                     'name' => ' '
                                 ],
@@ -214,17 +214,6 @@ class FormInput extends AbstractPropertyInput
                             ]
                         ]
                     ]
-                ]
-            ],
-            'basic'         => [
-                'default' => false,
-            ],
-            'advanced'      => [
-                'components' => [
-                    'recaptcha' => false,
-                    'form'      => false,
-                    'location'  => false,
-                    'modaledit' => false,
                 ]
             ]
         ];
