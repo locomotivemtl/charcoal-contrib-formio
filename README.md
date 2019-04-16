@@ -45,26 +45,6 @@ $ composer require locomotivemtl/charcoal-contrib-formio
 
 
 
-#### PSR
-
---TBD--
-
-
-
-## Service Provider
-
-### Parameters
-
---TBD--
-
-
-
-### Services
-
---TBD--
-
-
-
 ## Configuration
 
 Add the formio module to the modules list in the site's config file.
@@ -79,27 +59,37 @@ Add the formio module to the modules list in the site's config file.
 
 ## Usage
 
-Two property type are provided by this package :
-- `fomrio/form` (Form builder input)
-- `fomrio/submission` (To save a form submission)
+Three property type are provided by this package :
+- `formio/form` (Form builder input)
+- `formio/schema` (Form schema)
+- `formio/submission` (To save a form submission)
     
 ```json
 "my_property": {
     "type": "formio/form",
     "l10n": false,
-    "label": "My property"
+    "label": "My form property"
 },
 ```
+
+
+```json
+"my_property": {
+    "type": "formio/schema",
+    "l10n": false,
+    "label": "My schema property"
+},
+```
+
 ```json
 "my_property_submission": {
       "type": "formio/submission",
       "l10n": false,
-      "label": {
-           "en": "Submission",
-            "fr": "Soumission"
-      }
+      "label": "My submission property"
 }
 ```
+
+<small>Note that formio properties do not support `l10n` for now.</small>
 
 To update a form when saving the object you must call the method `createOrUpdateRelation()` on the property.
 This example saves or updates the form builder schema for a property called `test`. This code should be found in the object's controller.
@@ -126,7 +116,8 @@ protected function preSave()
  */
 protected function preUpdate(array $properties = null)
 {
-    $this->test = $this->p('test')->createOrUpdateRelation($this->test, $this->load()->test);
+    $clone = clone $this; // Avoid calling `load()` on current object.
+    $this->test = $this->p('test')->createOrUpdateRelation($this->test, $clone->load()->test);
 
     return parent::preUpdate($properties);
 }
