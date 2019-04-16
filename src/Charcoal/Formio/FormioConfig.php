@@ -28,10 +28,10 @@ class FormioConfig extends AbstractConfig
      */
     public function defaults()
     {
-        $baseDir = rtrim(realpath(__DIR__.'/../../../'), '/');
-        $confDir = $baseDir.'/config';
+        $baseDir = rtrim(realpath(__DIR__ . '/../../../'), '/');
+        $confDir = $baseDir . '/config';
 
-        $formioConfig = $this->loadFile($confDir.'/formio.json');
+        $formioConfig = $this->loadFile($confDir . '/formio.json');
 
         return $formioConfig;
     }

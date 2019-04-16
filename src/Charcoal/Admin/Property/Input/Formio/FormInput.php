@@ -207,7 +207,7 @@ class FormInput extends AbstractPropertyInput
                                         ]
                                     ]
                                 ],
-                                'successLabel' => "Paiement réussi",
+                                'successLabel' => 'Paiement réussi',
                                 'stripeElementOptions' => [
                                     'hidePostalCode' => true
                                 ]
@@ -285,7 +285,7 @@ class FormInput extends AbstractPropertyInput
             ]);
             $this->addFeedback(
                 'notice',
-                '<span class="fa fa-asterisk" aria-hidden="true"></span><span>&nbsp; '.$msg.'</span>'
+                '<span class="fa fa-asterisk" aria-hidden="true"></span><span>&nbsp; ' . $msg . '</span>'
             );
         }
     }

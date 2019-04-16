@@ -146,7 +146,7 @@ class SubmissionInput extends FormInput
             return $form->schema();
         }
 
-        return "";
+        return '';
     }
 
     /**
