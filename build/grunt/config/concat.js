@@ -13,7 +13,6 @@ module.exports = {
             // Formio.js
             '<%= paths.npm %>/formiojs/dist/formio.full.min.js',
         ],
-        dest:      '<%= paths.js.dist %>/charcoal.formio.vendors.js',
-        separator: "\n"
+        dest:      '<%= paths.js.dist %>/charcoal.formio.vendors.min.js'
     }
 };

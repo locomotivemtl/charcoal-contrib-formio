@@ -4,7 +4,7 @@
             "collections": {
                 "formio_js": {
                     "files": [
-                        "vendor/locomotivemtl/charcoal-contrib-formio/assets/dist/scripts/charcoal.formio.vendors.min.js",
+                        "vendor/locomotivemtl/charcoal-contrib-formio/assets/dist/scripts/formio.full.min.js",
                         "vendor/locomotivemtl/charcoal-contrib-formio/assets/dist/scripts/charcoal.formio.min.js"
                     ]
                 },

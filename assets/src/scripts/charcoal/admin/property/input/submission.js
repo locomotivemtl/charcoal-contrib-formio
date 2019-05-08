@@ -74,7 +74,7 @@
                 if (submissionData) {
                     builder.submission = {
                         data: submissionData
-                    }
+                    };
                 }
 
                 // On builder render
