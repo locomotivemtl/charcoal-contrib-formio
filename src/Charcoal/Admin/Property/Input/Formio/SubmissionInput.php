@@ -3,6 +3,7 @@
 namespace Charcoal\Admin\Property\Input\Formio;
 
 // from pimple
+use Charcoal\Formio\Object\Submission;
 use Pimple\Container;
 
 /**
@@ -107,8 +108,12 @@ class SubmissionInput extends FormInput
         }
 
         if (isset($val) && $val !== null) {
-            $submissionModelId = $this->viewController()->objId();
-            $model = $this->submissionModel($submissionModelId);
+            if ($this->viewController()->objType() === Submission::objType()) {
+                $submissionModelId = $this->viewController()->objId();
+                $model = $this->submissionModel($submissionModelId);
+            } else {
+                $model = $this->submissionModel($val);
+            }
 
             if ($model->id()) {
                 return $model->submissionData();
@@ -135,7 +140,7 @@ class SubmissionInput extends FormInput
     }
 
     /**
-     * @return array
+     * @return string
      */
     private function formSchema()
     {
