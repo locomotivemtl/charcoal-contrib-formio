@@ -1,0 +1,15 @@
+{{> charcoal/admin/template/inc.header }}
+
+{{! @todo See if broken, feedbacks partial used to be right here L15 }}
+
+<main class="c-page-container o-flex_main">
+    {{> charcoal/admin/template/inc.page-header }}
+    <section class="o-container -bottom">
+        {{> charcoal/admin/widget/feedbacks }}
+
+        {{& submissionWidget }}
+
+    </section>
+</main>
+
+{{> charcoal/admin/template/inc.footer }}

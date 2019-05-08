@@ -1,0 +1,19 @@
+<div id="{{ widgetId }}" style="min-height: 125px;position:relative;margin-top:16px;">
+    <div class="js-form-builder"></div>
+    <div class="js-loader charcoal-loader_box -is-loading">
+        <div class="charcoal-loader_spinner">
+            <i class="charcoal-loader_spinner_icon fa-3x fa fa-spinner fa-pulse"></i>
+        </div>
+    </div>
+</div>
+
+{{ assets.enqueue.css.formio_css }}
+{{ assets.enqueue.js.formio_js }}
+{{# assets.inject.js }}
+Charcoal.Admin.manager().add_widget({
+    id:         '{{ widgetId }}',
+    type:       '{{ type }}',
+    widget_type: '{{ type }}',
+    data:       {{& widgetDataForJsAsJson }}
+});
+{{/ assets.inject.js }}
