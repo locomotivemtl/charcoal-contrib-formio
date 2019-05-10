@@ -4,6 +4,7 @@
         "postcss",
         "cssmin",
         "concat",
+        "rollup",
         "jscs",
         "jshint",
         "jsonlint",

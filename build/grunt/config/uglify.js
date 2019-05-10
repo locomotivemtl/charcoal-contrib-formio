@@ -5,14 +5,14 @@ module.exports = {
     app: {
         files: {
             '<%= paths.js.dist %>/charcoal.formio.min.js': [
-                '<%= concat.formio.dest %>'
+                '<%= paths.js.dist %>/formio.js'
             ]
         }
     },
     vendors: {
         files: {
             '<%= paths.js.dist %>/charcoal.formio.vendors.min.js': [
-                '<%= concat.vendors.dest %>'
+                '<%= concat.formio_vendor.dest %>'
             ]
         }
     }

@@ -5,7 +5,7 @@ module.exports = {
     },
     javascript: {
         files: [ '<%= paths.js.src %>/**/*.js', '<%= paths.grunt %>/config/concat.js' ],
-        tasks: [ 'concat', 'uglify', 'notify:javascript' ]
+        tasks: [ 'concat','rollup', 'uglify', 'notify:javascript' ]
     },
     sass: {
         files: [ '<%= paths.css.src %>/**/*.scss' ],
