@@ -4,6 +4,7 @@ namespace Charcoal\Formio;
 
 // from charcoal-app
 use Charcoal\App\Module\AbstractModule;
+use Charcoal\Translator\TranslatorAwareTrait;
 
 /**
  * Formio Module
@@ -27,6 +28,8 @@ class FormioModule extends AbstractModule
 
         $formioConfig = $container['formio/config'];
         $this->setConfig($formioConfig);
+
+        $container['translator/config']->addPaths(['vendor/locomotivemtl/charcoal-contrib-formio/translations']);
 
         return $this;
     }
