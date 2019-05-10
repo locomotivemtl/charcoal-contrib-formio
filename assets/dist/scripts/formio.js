@@ -29777,7 +29777,8 @@ var FormioExport = unwrapExports(formioExport);
     this._builder = undefined;
     this._builder_options = opts.data.builder_options;
     this._schema = opts.data.schema;
-    this._submission = opts.data.submission; // Elements
+    this._submission = opts.data.submission;
+    this._submission_id = opts.data.submission_id; // Elements
 
     this.$widget = this.element();
     this.$builder = this.$widget.find('.js-form-builder');
@@ -29816,7 +29817,7 @@ var FormioExport = unwrapExports(formioExport);
     });
     var pdf_config = {
       download: true,
-      filename: submissionWidgetL10n.submission + '.pdf'
+      filename: submissionWidgetL10n.submission + '_' + this._submission_id + '.pdf'
     };
     exporter.toPdf(pdf_config);
   };
