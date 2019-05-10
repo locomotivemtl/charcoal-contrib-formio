@@ -1,26 +1,25 @@
-/* global Formio, Charcoal */
+/* global Formio, Charcoal, submissionWidgetL10n */
 /**
  * Form builder
  *
  * Require
  * - formio.full.min.js
  */
-;(function () {
+import FormioExport from '../../../node_modules/formio-export/lib/formio-export';
 
+;(function () {
     /**
      * `charcoal/admin/property/input/Formio/Form`
      * Property_Input_Formio_Form Javascript class
      *
      */
-    var FormBuilder = function (data) {
-        // Charcoal.Admin.Property.call(this, data);
-    };
+    var Submission = function () {};
 
-    FormBuilder.prototype             = Object.create(Charcoal.Admin.Widget.prototype);
-    FormBuilder.prototype.constructor = Charcoal.Admin.Widget_Submission;
-    FormBuilder.prototype.parent      = Charcoal.Admin.Widget.prototype;
+    Submission.prototype             = Object.create(Charcoal.Admin.Widget.prototype);
+    Submission.prototype.constructor = Charcoal.Admin.Widget_Submission;
+    Submission.prototype.parent      = Charcoal.Admin.Widget.prototype;
 
-    FormBuilder.prototype.set_properties = function () {
+    Submission.prototype.set_properties = function () {
         var opts = this.opts();
 
         // Builder reference
@@ -30,14 +29,15 @@
         this._submission      = opts.data.submission;
 
         // Elements
-        this.$widget  = this.element();
-        this.$builder = this.$widget.find('.js-form-builder');
-        this.$loader  = this.$widget.find('.js-loader');
+        this.$widget    = this.element();
+        this.$builder   = this.$widget.find('.js-form-builder');
+        this.$loader    = this.$widget.find('.js-loader');
+        this.$pdf_button = this.$widget.find('.js-pdf-download');
 
         return this;
     };
 
-    FormBuilder.prototype.init = function () {
+    Submission.prototype.init = function () {
         this.set_properties();
 
         this.$loader.addClass('-is-loading');
@@ -49,9 +49,34 @@
 
         var options = this.parse_options();
         this.init_builder(options);
+
+        this.$pdf_button.on('click', this.downloadPdf.bind(this));
     };
 
-    FormBuilder.prototype.parse_options = function () {
+    Submission.prototype.downloadPdf = function () {
+        var FormExportData = $.extend(true, this._schema, {
+            type:       'form',
+            title:      'Soumission',
+            display:    'form',
+            viewAsHtml: true
+        });
+        var exporter       = new FormioExport(FormExportData, this._submission, {
+            viewAsHtml: true,
+            formio:     {
+                viewAsHtml:   true,
+                ignoreLayout: false
+            }
+        });
+
+        var pdf_config = {
+            download: true,
+            filename: submissionWidgetL10n.submission+'.pdf'
+        };
+
+        exporter.toPdf(pdf_config);
+    };
+
+    Submission.prototype.parse_options = function () {
         var defaultOptions = {};
 
         this._builder_options = $.extend(true, defaultOptions, this._builder_options);
@@ -59,7 +84,7 @@
         return this._builder_options;
     };
 
-    FormBuilder.prototype.init_builder = function (options) {
+    Submission.prototype.init_builder = function (options) {
         var that           = this;
         var submissionData = this._submission;
 
@@ -82,6 +107,6 @@
             });
     };
 
-    Charcoal.Admin.Widget_Submission = FormBuilder;
+    Charcoal.Admin.Widget_Submission = Submission;
 
-}(jQuery, document, Formio));
+}(jQuery, document, Formio, FormioExport));

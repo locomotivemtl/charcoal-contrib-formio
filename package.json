@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "author": "Locomotive <info@locomotive.ca>",
     "dependencies": {
+        "formio-export": "^0.3.0",
         "formiojs": "^3.20.4"
     },
     "devDependencies": {
