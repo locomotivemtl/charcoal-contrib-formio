@@ -23,4 +23,17 @@ class SubmissionProperty extends StructureProperty
     {
         return 'formio/submission';
     }
+
+    /**
+     * Retrieve the property's SQL data type (storage format).
+     *
+     * For a lack of better array support in mysql, data is stored as encoded JSON in a TEXT.
+     *
+     * @return string
+     * @see StorableProperyTrait::sqlType()
+     */
+    public function sqlType()
+    {
+        return 'LONGTEXT';
+    }
 }
