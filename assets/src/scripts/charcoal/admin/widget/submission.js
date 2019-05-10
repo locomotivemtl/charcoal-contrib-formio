@@ -13,7 +13,8 @@ import FormioExport from '../../../node_modules/formio-export/lib/formio-export'
      * Property_Input_Formio_Form Javascript class
      *
      */
-    var Submission = function () {};
+    var Submission = function () {
+    };
 
     Submission.prototype             = Object.create(Charcoal.Admin.Widget.prototype);
     Submission.prototype.constructor = Charcoal.Admin.Widget_Submission;
@@ -27,11 +28,12 @@ import FormioExport from '../../../node_modules/formio-export/lib/formio-export'
         this._builder_options = opts.data.builder_options;
         this._schema          = opts.data.schema;
         this._submission      = opts.data.submission;
+        this._submission_id   = opts.data.submission_id;
 
         // Elements
-        this.$widget    = this.element();
-        this.$builder   = this.$widget.find('.js-form-builder');
-        this.$loader    = this.$widget.find('.js-loader');
+        this.$widget     = this.element();
+        this.$builder    = this.$widget.find('.js-form-builder');
+        this.$loader     = this.$widget.find('.js-loader');
         this.$pdf_button = this.$widget.find('.js-pdf-download');
 
         return this;
@@ -70,7 +72,7 @@ import FormioExport from '../../../node_modules/formio-export/lib/formio-export'
 
         var pdf_config = {
             download: true,
-            filename: submissionWidgetL10n.submission+'.pdf'
+            filename: submissionWidgetL10n.submission + '_' + this._submission_id +'.pdf'
         };
 
         exporter.toPdf(pdf_config);

@@ -56,7 +56,6 @@ class SubmissionWidget extends AdminWidget
         $this->formioConfig = $container['formio/config'];
     }
 
-
     /**
      * Set the form builder options.
      *
@@ -244,8 +243,6 @@ class SubmissionWidget extends AdminWidget
         return $this->submissionModel()->submissionData();
     }
 
-
-
     /**
      * Retrieve the widget's data options for JavaScript components.
      *
@@ -257,7 +254,8 @@ class SubmissionWidget extends AdminWidget
             'widget_type'     => $this->type(),
             'builder_options' => $this->builderOptions(),
             'schema'          => json_decode($this->formSchema(), true),
-            'submission'      => json_decode($this->submission(), true)
+            'submission'      => json_decode($this->submission(), true),
+            'submission_id'   => $this->submissionModel()->id()
         ];
 
         return $data;
