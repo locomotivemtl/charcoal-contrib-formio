@@ -137,31 +137,7 @@ class SubmissionWidget extends AdminWidget
     {
         return [
             'readOnly'   => true,
-            'viewAsHtml' => false,
-            'builder'    => [
-                'customExample' => [
-                    'title'      => 'Example Components',
-                    'default'    => true,
-                    'weight'     => 0,
-                    'components' => [
-                        'textfield'   => true,
-                        'textarea'    => true,
-                        'email'       => true,
-                        'phoneNumber' => true
-                    ]
-                ],
-                'basic'         => [
-                    'default' => false,
-                ],
-                'advanced'      => [
-                    'components' => [
-                        'recaptcha' => false,
-                        'form'      => false,
-                        'location'  => false,
-                        'modaledit' => false,
-                    ]
-                ]
-            ]
+            'viewAsHtml' => true
         ];
     }
 

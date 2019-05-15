@@ -66,13 +66,15 @@ import FormioExport from '../../../node_modules/formio-export/lib/formio-export'
             viewAsHtml: true,
             formio:     {
                 viewAsHtml:   true,
-                ignoreLayout: false
+                ignoreLayout: true,
+                emptyValue: ' '
             }
         });
 
         var pdf_config = {
             download: true,
-            filename: submissionWidgetL10n.submission + '_' + this._submission_id +'.pdf'
+            filename: submissionWidgetL10n.submission + '_' + this._submission_id +'.pdf',
+            margin: 20, // the pdf file margins
         };
 
         exporter.toPdf(pdf_config);
