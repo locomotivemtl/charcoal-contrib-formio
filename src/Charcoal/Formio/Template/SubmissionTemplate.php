@@ -35,7 +35,7 @@ class SubmissionTemplate extends AdminTemplate implements
 
     public function title()
     {
-        return $this->translator()->translation('Submission #').$this->objId();
+        return $this->translator()->translation('Submission #') . $this->objId();
     }
 
     /**
