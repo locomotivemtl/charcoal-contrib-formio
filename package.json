@@ -6,7 +6,7 @@
     "author": "Locomotive <info@locomotive.ca>",
     "dependencies": {
         "formio-export": "^0.3.0",
-        "formiojs": "^3.20.11"
+        "formiojs": "^3.23.0"
     },
     "devDependencies": {
         "@babel/core": "^7.4.4",
@@ -32,6 +32,9 @@
         "grunt-svg-sprite": "^1.5.0",
         "grunt-yaml-validate": "^0.1.1",
         "load-grunt-config": "0.19.2",
-        "postcss-banner": "3.0.0"
+        "postcss-banner": "3.0.0",
+        "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-commonjs": "^10.0.1",
+        "rollup-plugin-node-resolve": "^5.2.0"
     }
 }
