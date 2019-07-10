@@ -1,10 +1,12 @@
-/* global Formio, Charcoal */
+/* global Formio, Charcoal, submissionInputL10n */
 /**
  * Form builder
  *
  * Require
  * - formio.full.min.js
  */
+import SubmissionExport from '../../../node_modules/formio-export/lib/formio-export';
+
 ;(function () {
 
     /**
@@ -27,6 +29,8 @@
         this._builder         = undefined;
         this._builder_options = data.data.builder_options;
         this._schema          = data.data.schema;
+        this._submission      = data.data.submission;
+        this._submission_id   = data.data.submission_id;
 
         this.save_action   = data.save_action || 'object/save';
         this.update_action = data.update_action || 'object/update';
@@ -36,6 +40,7 @@
         this.$builder = this.$widget.find('.js-form-builder');
         this.$input   = this.$widget.find('.js-input');
         this.$loader  = this.$widget.find('.js-loader');
+        this.$pdf_button = this.$widget.find('.js-pdf-download');
 
         return this;
     };
@@ -51,6 +56,32 @@
         var options = this.parse_options();
         this.init_builder(options);
 
+        this.$pdf_button.on('click', this.downloadPdf.bind(this));
+    };
+
+    FormBuilder.prototype.downloadPdf = function () {
+        var FormExportData = $.extend(true, this._schema, {
+            type:       'form',
+            title:      'Soumission',
+            display:    'form',
+            viewAsHtml: true
+        });
+        var exporter       = new SubmissionExport(FormExportData, this._submission, {
+            viewAsHtml: true,
+            formio:     {
+                viewAsHtml:   true,
+                ignoreLayout: true,
+                emptyValue: ' '
+            }
+        });
+
+        var pdf_config = {
+            download: true,
+            filename: submissionInputL10n.submission + '_' + this._submission_id +'.pdf',
+            margin: 20, // the pdf file margins
+        };
+
+        exporter.toPdf(pdf_config);
     };
 
     FormBuilder.prototype.parse_options = function () {

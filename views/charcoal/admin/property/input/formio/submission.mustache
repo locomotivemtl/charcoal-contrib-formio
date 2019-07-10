@@ -6,6 +6,12 @@
 --}}
 
 <div id="{{ inputId }}" style="min-height: 125px">
+    <div class="d-flex justify-content-end mb-2">
+        <button class="btn btn-danger btn-lg p-2 text-center || js-pdf-download">
+            <i class="fa fa-2x fa-file-pdf-o mr-1 align-middle"></i>
+            <span class="align-middle">{{#_t}}Download as PDF{{/_t}}</span>
+        </button>
+    </div>
     <div class="js-form-builder"></div>
     <div class="js-loader charcoal-loader_box -is-loading">
         <div class="charcoal-loader_spinner">
@@ -18,11 +24,15 @@
 {{ assets.enqueue.css.formio_css }}
 {{ assets.enqueue.js.formio_js }}
 {{# assets.inject.js }}
-    var inputOptions = {
+var submissionInputL10n = {
+    "submission": "{{# _t }}Submission{{/ _t }}"
+};
+
+var inputOptions = {
     id           : '{{ inputId }}',
     type         : '{{ inputType }}',
     data         : {{& controlDataForJsAsJson }}
-    };
+};
 
-    Charcoal.Admin.manager().add_property_input(inputOptions);
+Charcoal.Admin.manager().add_property_input(inputOptions);
 {{/ assets.inject.js }}

@@ -155,6 +155,14 @@ class SubmissionInput extends FormInput
     }
 
     /**
+     * @return string
+     */
+    private function submission()
+    {
+        return $this->submissionModel()->submissionData();
+    }
+
+    /**
      * Retrieve the control's data options for JavaScript components.
      *
      * @return array
@@ -164,7 +172,9 @@ class SubmissionInput extends FormInput
         $data = [
             'input_type'      => $this->inputType(),
             'builder_options' => $this->builderOptions(),
-            'schema'          => json_decode($this->formSchema(), true)
+            'schema'          => json_decode($this->formSchema(), true),
+            'submission'      => json_decode($this->submission(), true),
+            'submission_id'   => $this->submissionModel()->id()
         ];
 
         return $data;
