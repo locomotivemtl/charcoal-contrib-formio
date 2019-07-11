@@ -64,15 +64,19 @@ import SubmissionExport from '../../../node_modules/formio-export/lib/formio-exp
             type:       'form',
             title:      'Soumission',
             display:    'form',
-            viewAsHtml: true
+            viewAsHtml: false
         });
         var exporter       = new SubmissionExport(FormExportData, this._submission, {
-            viewAsHtml: true,
+            viewAsHtml: false,
             formio:     {
-                viewAsHtml:   true,
+                viewAsHtml:   false,
                 ignoreLayout: true,
                 emptyValue: ' '
             }
+        });
+
+        exporter.toHtml().then(function (html) {
+            document.body.appendChild(html);
         });
 
         var pdf_config = {
