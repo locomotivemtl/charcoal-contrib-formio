@@ -24,7 +24,7 @@
         "php": ">=5.6.0 || >=7.0",
         "ext-json": "*",
         "locomotivemtl/charcoal-admin": "~0.14",
-        "locomotivemtl/charcoal-property": "^0.7",
+        "locomotivemtl/charcoal-property": "~0.7",
         "locomotivemtl/charcoal-translator": "~0.3.6"
     },
     "require-dev": {
