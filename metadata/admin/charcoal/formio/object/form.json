@@ -1,49 +1,49 @@
 {
-    "labels": {
-        "name": {
-            "en": "Form",
-            "fr": "Formulaire"
-        },
-        "singular_name": {
-            "en": "Form",
-            "fr": "Formulaire"
-        },
-        "edit_item": {
-            "en": "Edit Form",
-            "fr": "Modifier le formulaire"
-        },
-        "create_item": {
-            "en": "Create Form",
-            "fr": "Créer un formulaire"
-        },
-        "new_item": {
-            "en": "New Form",
-            "fr": "Nouveau formulaire"
-        },
-        "all_items": {
-            "en": "All Forms",
-            "fr": "Tous les formulaires"
-        },
-        "menu_items": {
-            "en": "Forms",
-            "fr": "Formulaire"
-        }
-    },
-
     "admin": {
+        "labels": {
+            "name": {
+                "en": "Form",
+                "fr": "Formulaire"
+            },
+            "singularName": {
+                "en": "Form",
+                "fr": "Formulaire"
+            },
+            "editItem": {
+                "en": "Edit Form",
+                "fr": "Modifier le formulaire"
+            },
+            "createItem": {
+                "en": "Create Form",
+                "fr": "Créer un formulaire"
+            },
+            "newItem": {
+                "en": "New Form",
+                "fr": "Nouveau formulaire"
+            },
+            "allItems": {
+                "en": "All Forms",
+                "fr": "Tous les formulaires"
+            },
+            "menuItems": {
+                "en": "Forms",
+                "fr": "Formulaire"
+            }
+        },
+
         "lists": {
             "default": {
                 "label": {},
                 "properties": [
                     "title"
                 ],
-                "list_actions": [
+                "listActions": [
                     {
                         "ident": "create",
                         "url": "object/edit?main_menu={{main_menu}}&obj_type={{obj_type}}"
                     }
                 ],
-                "object_actions": {
+                "objectActions": {
                     "edit": {
                         "label": {
                             "en": "Modify",
@@ -51,7 +51,7 @@
                         },
                         "url": "object/edit?&obj_type={{obj_type}}&obj_id={{id}}",
                         "priority": 1,
-                        "split_button": true,
+                        "splitButton": true,
                         "actions": {
                             "delete": {
                                 "label": {
@@ -71,7 +71,8 @@
                 }
             }
         },
-        "default_list": "default",
+
+        "defaultList": "default",
 
         "forms": {
             "default": {
@@ -82,9 +83,9 @@
                             "en": "Informations",
                             "fr": "Informations"
                         },
-                        "tab_title": "Info",
-                        "show_title": true,
-                        "show_header": true,
+                        "tabTitle": "Info",
+                        "showTitle": true,
+                        "showHeader": true,
                         "icon": "info",
                         "layout": {
                             "structure": [
@@ -104,15 +105,16 @@
                     "default": {
                         "properties": [
                             "created",
-                            "created_by",
-                            "last_modified",
-                            "last_modified_by"
+                            "createdBy",
+                            "lastModified",
+                            "lastModifiedBy"
                         ]
                     }
                 }
             }
         },
-        "default_form": "default",
+
+        "defaultForm": "default",
 
         "dashboards": {
             "admin.edit": {
@@ -124,7 +126,7 @@
                 "widgets": {
                     "form": {
                         "type": "charcoal/admin/widget/object-form",
-                        "form_ident": "default"
+                        "formIdent": "default"
                     }
                 }
             },
@@ -137,14 +139,15 @@
                 "widgets": {
                     "table": {
                         "type": "charcoal/admin/widget/table",
-                        "collection_ident": "default",
-                        "data_sources": ["request"]
+                        "collectionIdent": "default",
+                        "dataSources": ["request"]
                     }
                 }
             }
         },
-        "default_create_dashboard": "admin.edit",
-        "default_edit_dashboard": "admin.edit",
-        "default_collection_dashboard": "admin.table"
+
+        "defaultCreateDashboard": "admin.edit",
+        "defaultEditDashboard": "admin.edit",
+        "defaultCollectionDashboard": "admin.table"
     }
 }

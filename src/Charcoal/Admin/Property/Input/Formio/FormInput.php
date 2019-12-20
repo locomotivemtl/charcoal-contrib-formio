@@ -232,7 +232,7 @@ class FormInput extends AbstractPropertyInput
             $formModel = $this->formProto()->load($val);
 
             if ($formModel->id() !== null) {
-                return $formModel->schema();
+                return $formModel['schema'];
             }
         }
 

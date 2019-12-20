@@ -201,11 +201,11 @@ class SubmissionWidget extends AdminWidget
      */
     private function formSchema()
     {
-        $formId = $this->submissionModel()->form();
+        $formId = $this->submissionModel()['form'];
         $form   = $this->formProto()->load($formId);
 
         if ($form->id()) {
-            return $form->schema();
+            return $form['schema'];
         }
 
         return '';

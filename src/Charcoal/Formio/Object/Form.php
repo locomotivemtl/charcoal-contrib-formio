@@ -25,14 +25,6 @@ class Form extends Content implements
     private $schema;
 
     /**
-     * @return string
-     */
-    public function title()
-    {
-        return $this->title;
-    }
-
-    /**
      * @param string $title Title for Form.
      * @return self
      */
@@ -41,14 +33,6 @@ class Form extends Content implements
         $this->title = $title;
 
         return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function schema()
-    {
-        return $this->schema;
     }
 
     /**

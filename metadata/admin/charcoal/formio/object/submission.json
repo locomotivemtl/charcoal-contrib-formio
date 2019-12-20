@@ -1,36 +1,36 @@
 {
-    "labels": {
-        "name": {
-            "en": "Submission",
-            "fr": "Soumission"
-        },
-        "singular_name": {
-            "en": "Submission",
-            "fr": "Soumission"
-        },
-        "edit_item": {
-            "en": "Edit Submission",
-            "fr": "Modifier la soumission"
-        },
-        "create_item": {
-            "en": "Create Submission",
-            "fr": "Créer une soumission"
-        },
-        "new_item": {
-            "en": "New Submission",
-            "fr": "Nouvelle soumission"
-        },
-        "all_items": {
-            "en": "All Forms",
-            "fr": "Toutes les soumissions"
-        },
-        "menu_items": {
-            "en": "Forms",
-            "fr": "Soumissions"
-        }
-    },
-
     "admin": {
+        "labels": {
+            "name": {
+                "en": "Submission",
+                "fr": "Soumission"
+            },
+            "singularName": {
+                "en": "Submission",
+                "fr": "Soumission"
+            },
+            "editItem": {
+                "en": "Edit Submission",
+                "fr": "Modifier la soumission"
+            },
+            "createItem": {
+                "en": "Create Submission",
+                "fr": "Créer une soumission"
+            },
+            "newItem": {
+                "en": "New Submission",
+                "fr": "Nouvelle soumission"
+            },
+            "allItems": {
+                "en": "All Forms",
+                "fr": "Toutes les soumissions"
+            },
+            "menuItems": {
+                "en": "Forms",
+                "fr": "Soumissions"
+            }
+        },
+
         "lists": {
             "default": {
                 "label": {},
@@ -38,8 +38,8 @@
                     "id",
                     "created"
                 ],
-                "list_actions": [],
-                "object_actions": {
+                "listActions": [],
+                "objectActions": {
                     "edit": {
                         "label": {
                             "en": "Modify",
@@ -47,7 +47,7 @@
                         },
                         "url": "object/edit?&obj_type={{obj_type}}&obj_id={{id}}",
                         "priority": 1,
-                        "split_button": true,
+                        "splitButton": true,
                         "actions": {
                             "delete": {
                                 "label": {
@@ -67,7 +67,8 @@
                 }
             }
         },
-        "default_list": "default",
+
+        "defaultList": "default",
 
         "forms": {
             "default": {
@@ -78,9 +79,9 @@
                             "en": "Informations",
                             "fr": "Informations"
                         },
-                        "tab_title": "Info",
-                        "show_title": true,
-                        "show_header": true,
+                        "tabTitle": "Info",
+                        "showTitle": true,
+                        "showHeader": true,
                         "icon": "info",
                         "layout": {
                             "structure": [
@@ -90,7 +91,7 @@
                         },
                         "priority": 10,
                         "properties": [
-                            "submission_data"
+                            "submissionData"
                         ]
                     }
                 },
@@ -98,15 +99,16 @@
                     "default": {
                         "properties": [
                             "created",
-                            "created_by",
-                            "last_modified",
-                            "last_modified_by"
+                            "createdBy",
+                            "lastModified",
+                            "lastModifiedBy"
                         ]
                     }
                 }
             }
         },
-        "default_form": "default",
+
+        "defaultForm": "default",
 
         "dashboards": {
             "admin.edit": {
@@ -118,7 +120,7 @@
                 "widgets": {
                     "submission": {
                         "type": "charcoal/admin/widget/object-form",
-                        "form_ident": "default"
+                        "formIdent": "default"
                     }
                 }
             },
@@ -131,14 +133,15 @@
                 "widgets": {
                     "table": {
                         "type": "charcoal/admin/widget/table",
-                        "collection_ident": "default",
-                        "data_sources": ["request"]
+                        "collectionIdent": "default",
+                        "dataSources": ["request"]
                     }
                 }
             }
         },
-        "default_create_dashboard": "admin.edit",
-        "default_edit_dashboard": "admin.edit",
-        "default_collection_dashboard": "admin.table"
+
+        "defaultCreateDashboard": "admin.edit",
+        "defaultEditDashboard": "admin.edit",
+        "defaultCollectionDashboard": "admin.table"
     }
 }

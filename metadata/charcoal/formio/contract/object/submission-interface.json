@@ -1,6 +1,6 @@
 {
     "properties": {
-        "submission_data": {
+        "submissionData": {
             "type": "formio/submission",
             "l10n": false,
             "label": {

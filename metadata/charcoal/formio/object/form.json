@@ -5,9 +5,10 @@
             "table": "formio_forms"
         }
     },
-    "default_source": "default",
 
-    "default_data": {},
+    "defaultSource": "default",
+
+    "defaultData": {},
 
     "properties": {
         "id": {

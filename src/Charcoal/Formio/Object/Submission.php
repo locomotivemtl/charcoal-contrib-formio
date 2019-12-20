@@ -46,14 +46,6 @@ class Submission extends Content implements
     }
 
     /**
-     * @return string
-     */
-    public function form()
-    {
-        return $this->form;
-    }
-
-    /**
      * @param string $form Form for Submission.
      * @return self
      */
