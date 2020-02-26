@@ -3,3 +3,7 @@
 // ==========================================================================
 
 @import "imports-vendors";
+
+.charcoal-loader_box:not(.-is-loading) {
+    display: none;
+}
