@@ -63,4 +63,12 @@ class Submission extends Content implements
 
         return $this;
     }
+
+    /**
+     * @return boolean
+     */
+    public function getRevisionEnabled()
+    {
+        return false;
+    }
 }
